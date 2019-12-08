@@ -10,8 +10,13 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
+    const user = {
+        name: req.body.name,
+        age: req.body.age
+    }
     res.status(200).json({
-        message: 'Its a POST method'
+        message: 'Its a POST method',
+        user: user
     });
 });
 
