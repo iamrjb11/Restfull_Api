@@ -86,9 +86,9 @@ router.delete('/:userId', (req, res, next) => {
         });
 });
 
-router.patch('/:userId', (req, res, next) => {
+router.patch('/:userId', async(req, res, next) => {
     const id = req.params.userId;
-    Userdb.update({ _id: id }, { $set: { name: req.body.newname, age: newage } })
+    Userdb.update({ _id: id }, { $set: { name: req.body.newname, age: req.body.newage } })
         .exec()
         .then(result => {
             res.status(200).json({
